@@ -24,16 +24,7 @@ func init() {
 				panic(err)
 			}
 			defer f.Close()
-			b, _ := io.ReadAll(f)
-			_ = b
-		case ".nfo":
-			f, err := embedFS.Open("embeds/" + name)
-			if err != nil {
-				panic(err)
-			}
-			defer f.Close()
-			b, _ := io.ReadAll(f)
-			_ = b
+			_, _ = io.ReadAll(f)
 		default:
 			panic(fmt.Sprintf("Unhandled extension %q", ext))
 		}
